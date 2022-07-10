@@ -13,7 +13,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t javatechie/devops-integration .'
+                    sh 'docker build -t suresh394/Suresh-Raju-Vetukuri-Project1 .'
                 }
             }
         }

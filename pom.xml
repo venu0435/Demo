@@ -57,7 +57,7 @@
 				<artifactId>git-commit-id-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>Suresh-Raju-Vetukuri-Project1</finalName>
+		<finalName>devops</finalName>
 	</build>
 
 </project>

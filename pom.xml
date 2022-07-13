@@ -57,7 +57,7 @@
 				<artifactId>git-commit-id-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>devops</finalName>
+		<finalName>project1</finalName>
 	</build>
 
 </project>

@@ -11,7 +11,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t suresh394/devops .'
+                    sh 'docker build -t suresh394/vetukuri:1.45.1 .'
                 }
             }
         }
@@ -22,7 +22,7 @@ pipeline {
                    sh 'docker login -u javatechie -p ${dockerhubpwd}'
 
 }
-                   sh 'docker push suresh394/devops'
+                   sh 'docker push suresh394/vetukuri:1.45.1'
                 }
             }
         }

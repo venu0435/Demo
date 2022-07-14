@@ -57,7 +57,7 @@
 				<artifactId>git-commit-id-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>vetukuri</finalName>
+		<finalName>magam</finalName>
 	</build>
 
 </project>

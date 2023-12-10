@@ -1,41 +1,32 @@
 pipeline {
     agent any
-    tools{
-        maven 'maven'
+    environment {
+        dockerImage = ""
+        registry = "khadar3099/k8s-demo"
+        registryCredential = 'dockerhublogin'
     }
-    
-    stages{
-        stage('Build Maven'){
-            steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sureshrajuvetukuri/devops-automation.git']]])
+    stages {
+        stage('Build Maven') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/khadar099/automation-to-k8s.git']]])
                 sh 'mvn clean install'
             }
         }
-        stage('Build docker image'){
-            steps{
-                script{
-                    sh 'docker build -t suresh394/kubernetes .'
+        stage ('Docker Build Stage') {
+            steps {
+                script {
+                    dockerImage = docker.build registry
                 }
             }
         }
-        stage('Push image to hub'){
-            steps{
-                script{
-                    withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
-                    sh 'docker login -u suresh394 -p ${dockerhubpwd}'
-                        
+        stage('docker image push') {
+            steps {
+                script {
+                    docker.withRegistry( '', registryCredential ) {
+                    dockerImage.push()
                     }
-                    sh 'docker push suresh394/kubernetes'
                 }
             }
         }
-        stage('Deploy to K8s'){
-            steps{
-                script{
-                    kubernetesDeploy (configs: 'deploymentservice.yaml',kubeconfigId: 'kubeconfig')
-                }
-            }
-        }
-    
-    }    
+    }
 }

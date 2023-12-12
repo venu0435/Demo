@@ -7,10 +7,16 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
+        stage('Reading files from repo') {
+            steps {
+                script {
+                  def datas = readYaml file: 'config.yml'
+                }
+            }
+        }
         stage ('Docker Build Stage') {
             steps {
                 script {
-                    def yaml = readYaml file: 'config.yaml'
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }

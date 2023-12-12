@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        config = readYaml file: "config.yaml"
+        
     }
     stages {
         stage('Build Maven') {
@@ -13,6 +13,7 @@ pipeline {
         stage ('Docker Build Stage') {
             steps {
                 script {
+                    config = readYaml file: "config.yaml"
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }

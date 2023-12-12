@@ -1,9 +1,7 @@
 pipeline {
     agent any
     environment {
-        dockerImage = ""
-        registry = "khadar3099/k8s-demo"
-        registryCredential = 'dockerhublogin'
+        config = readYaml file: "config.yaml"
     }
     stages {
         stage('Build Maven') {

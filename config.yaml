@@ -1,0 +1,3 @@
+dockerImage = ""
+registry = "khadar3099/k8s-demo"
+registryCredential = 'dockerhublogin'

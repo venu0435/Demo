@@ -40,5 +40,11 @@ pipeline {
                     }
                 }
             }
+        stage ('deploy docker image') {
+            steps {
+                sh 'ssh ubuntu@13.235.135.6'
+                sh 'mkdir khadar_devops'
+            }
         }
     }
+}

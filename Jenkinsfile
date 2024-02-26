@@ -6,7 +6,7 @@ pipeline {
         stage('Git Checkout'){
             steps{
                 script{
-                    git branch: 'dvelop', url: 'https://github.com/khadar099/automation-to-k8s.git'
+                    git branch: 'develop', url: 'https://github.com/khadar099/automation-to-k8s.git'
                     sh 'mvn clean install'
                     }
                 }

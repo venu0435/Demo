@@ -42,7 +42,7 @@ pipeline {
             }
         stage ('deploy docker image') {
             steps {
-                sh 'ssh ubuntu@13.235.135.6'
+                sh 'ssh -tt ubuntu@13.235.135.6 -oStrictHostKeyChecking=no'
                 sh 'mkdir khadar_devops'
             }
         }

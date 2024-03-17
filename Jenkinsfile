@@ -6,7 +6,7 @@ pipeline {
         stage('Git Checkout'){
             steps{
                 script{
-                    git branch: nonprod, url: 'https://github.com/khadar099/automation-to-k8s.git'
+                    git branch: 'nonprod', url: 'https://github.com/khadar099/automation-to-k8s.git'
                     }
                 }
             }

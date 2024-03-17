@@ -40,5 +40,17 @@ pipeline {
                     }
                 }
             }
+        post {
+        success {
+            emailext subject: "Pipeline Success: ${currentBuild.fullDisplayName}",
+                      body: "Your pipeline ${currentBuild.fullDisplayName} has succeeded.",
+                      to: "khadarjan88@gmail.com"
+        }
+        failure {
+            emailext subject: "Pipeline Failure: ${currentBuild.fullDisplayName}",
+                      body: "Your pipeline ${currentBuild.fullDisplayName} has failed.",
+                      to: "khadarjan88@gmail.com"
+            }
+        }
     }
 }

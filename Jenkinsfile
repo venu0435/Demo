@@ -40,6 +40,8 @@ pipeline {
                     }
                 }
             }
+        }
+}
         post {
         success {
             emailext subject: "Pipeline Success: ${currentBuild.fullDisplayName}",
@@ -52,5 +54,3 @@ pipeline {
                       to: "khadarjan88@gmail.com"
             }
         }
-    }
-}

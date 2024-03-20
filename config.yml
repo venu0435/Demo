@@ -1,3 +1,4 @@
 dockerImage = ""
 registry = "khadar3099/k8s-demo"
 registryCredential = 'dockerhublogin'
+url = 'https://github.com/khadar099/automation-to-k8s.git'

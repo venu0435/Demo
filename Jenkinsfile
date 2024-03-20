@@ -20,6 +20,13 @@ pipeline {
                 }
             }
         }
+        stage('Reading files from repo') {
+            steps {
+                script {
+                  def datas = readYaml file: 'config.yml'
+                }
+            }
+        }
         stage ('Docker Build Stage') {
             steps {
                 script {

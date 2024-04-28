@@ -18,7 +18,7 @@ spec:
           image: khadar3099/demo-k8s # Image that will be used to containers in the cluster
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080 # The port that the container is running on in the cluster
+            - containerPort: 9090 # The port that the container is running on in the cluster
 
 
 ---
@@ -33,5 +33,5 @@ spec:
     app: spring-boot-k8s
   ports:
     - nodePort: 30163
-      port: 8080 
-      targetPort: 8080
+      port: 9090
+      targetPort: 9090
